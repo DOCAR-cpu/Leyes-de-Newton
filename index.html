@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leyes de Newton</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+background: #f4f4f4;
+color: #333;
+margin: 0;
+padding: 20px;
+}
+h1 {
+text-align: center;
+color: #2c3e50;
+}
+.ley {
+background: #fff;
+border-left: 5px solid #3498db;
+padding: 15px;
+margin: 20px auto;
+max-width: 700px;
+box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.ley h2 {
+color: #2980b9;
+}
+.demo {
+background-color: #ecf0f1;
+border: 1px dashed #7f8c8d;
+padding: 10px;
+margin-top: 10px;
+}
+button {
+margin-top: 10px;
+padding: 8px 15px;
+background-color: #2980b9;
+color: white;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+}
+button:hover {
+background-color: #1f6391;
+}
+.resultado {
+margin-top: 10px;
+font-weight: bold;
+color: #2c3e50;
+}
+</style>
+</head>
+<body>
+<h1>Leyes del Movimiento de Newton</h1>
+<div class="ley">
+<h2>Primera Ley</h2>
+<p>Un objeto permanecerá en reposo o en movimiento rectilíneo uniforme a menos que una fuerza externa actúe sobre él.</p>
+<div class="demo">
+<p>Simula que tienes una pelota en una mesa. Si nadie la empuja, ¿se mueve?</p>
+<button onclick="alert('Correcto: la pelota se queda quieta hasta que algo la empuje.')">Probar Ley</button>
+</div>
+</div>
+<div class="ley">
+<h2>Segunda Ley</h2>
+<p>La fuerza neta que actúa sobre un objeto es igual al producto de su masa por su aceleración: <strong>F = m × a</strong>.</p>
+<div class="demo">
+<p>Ingresa valores para calcular la fuerza:</p>
+<label>Masa (kg): <input type="number" id="masa" placeholder="Ej: 5"></label><br>
+<label>Aceleración (m/s²): <input type="number" id="aceleracion" placeholder="Ej: 2"></label><br>
+<button onclick="calcularFuerza()">Calcular Fuerza</button>
+<p class="resultado" id="resultadoFuerza"></p>
+</div>
+</div>
+<div class="ley">
+<h2>Tercera Ley</h2>
+<p>Por cada acción hay una reacción de igual magnitud y en sentido opuesto.</p>
+<div class="demo">
+<p>Si empujas una pared, ¿qué sientes?</p>
+<button onclick="alert('Sientes una fuerza de regreso: ¡la pared también te empuja!')">Ver explicación</button>
+</div>
+</div>
+<script>
+function calcularFuerza() {
+const masa = parseFloat(document.getElementById('masa').value);
+const aceleracion = parseFloat(document.getElementById('aceleracion').value);
+const resultado = document.getElementById('resultadoFuerza');
+if (isNaN(masa) || isNaN(aceleracion)) {
+resultado.textContent = 'Por favor, ingresa números válidos.';
+return;
+}
+const fuerza = masa * aceleracion;
+resultado.textContent = `La fuerza es: ${fuerza} N (newtons)`;
+}
+</script>
+</body>
+</html>
